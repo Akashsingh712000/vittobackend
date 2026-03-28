@@ -1,0 +1,102 @@
+{
+  "info": {
+    "name": "Vitto Sign-Up API",
+    "description": "Endpoints for the Vitto AI Sign-Up flow, including OTP generation, verification, and Lead creation.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth Flow",
+      "item": [
+        {
+          "name": "1. Send OTP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"identifier\": \"test@vitto.ai\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/auth/send-otp",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "auth", "send-otp"]
+            }
+          }
+        },
+        {
+          "name": "2. Verify OTP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"identifier\": \"test@vitto.ai\",\n  \"otp\": \"REPLACE_WITH_MOCK_OTP\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/auth/verify-otp",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "auth", "verify-otp"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Leads Flow",
+      "item": [
+        {
+          "name": "3. Create Lead",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@bank.com\",\n  \"phone\": \"9876543210\",\n  \"institution_name\": \"Test Bank\",\n  \"institution_type\": \"Bank\",\n  \"city\": \"New York\",\n  \"loan_book_size\": 50000\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/leads",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "leads"]
+            }
+          }
+        },
+        {
+          "name": "4. Get Lead by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/leads/REPLACE_WITH_LEAD_ID",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "leads", "REPLACE_WITH_LEAD_ID"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

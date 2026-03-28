@@ -17,5 +17,13 @@
     "mongoose": "^9.3.3",
     "pg": "^8.20.0",
     "zod": "^4.3.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akashsingh712000/vittobackend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Akashsingh712000/vittobackend/issues"
+  },
+  "homepage": "https://github.com/Akashsingh712000/vittobackend#readme"
 }
