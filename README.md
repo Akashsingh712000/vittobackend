@@ -1,31 +1,47 @@
-# Vitto Backend
+
+
+#  BACKEND README (FINAL PROFESSIONAL)
+
+```md
+# Vitto – Backend API (OTP + Lead Management)
 
 ## Overview
 
-This project part is backend of an AI-first BFSI website with backend APIs for OTP
-authentication and lead management.
+This backend provides core APIs for:
+- OTP authentication (with TTL)
+- Lead capture and storage
 
-## Tech Stack
+Designed with a clean, modular architecture aligned with real-world BFSI systems.
 
--   Backend: Node.js + Express
--   Databases: MongoDB (TTL OTP), PostgreSQL (Leads)
+---
 
-## API Endpoints
+##  Live API
 
--   POST /api/auth/send-otp
--   POST /api/auth/verify-otp
--   POST /api/leads
--   GET /api/leads/:id
+Backend URL: [https://your-backend.onrender.com](https://zealous-appreciation-production-2fb7.up.railway.app/)
 
-## Setup
+---
 
-1.  Install dependencies
-2.  Add .env file
-3.  Run backend: npm run dev
-4.  Run frontend: npm run dev
+## 🛠 Tech Stack
 
-## Features
+- Node.js
+- Express.js
+- MongoDB (OTP sessions with TTL)
+- PostgreSQL (Lead storage)
+- Zod (validation)
 
--   OTP authentication with TTL
--   Lead storage in PostgreSQL could not connect
--   Clean modular architecture
+---
+
+## 📁 Project Structure
+
+src/
+├── config/
+├── controllers/
+├── models/
+├── routes/
+├── scripts/
+
+---
+
+## ⚙️ Environment Variables
+
+Create `.env` file:
