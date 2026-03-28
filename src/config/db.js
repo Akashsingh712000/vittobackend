@@ -9,9 +9,9 @@ const pool = new Pool({
 const connectPostgres = async () => {
   try {
     await pool.connect();
-    console.log('✅ PostgreSQL Connected Successfully');
+    console.log(' PostgreSQL Connected Successfully');
   } catch (error) {
-    console.error('❌ PostgreSQL Connection Error:', error.message);
+    console.error(' PostgreSQL Connection Error:', error.message);
   }
 };
 
@@ -19,9 +19,9 @@ const connectPostgres = async () => {
 const connectMongo = async () => {
   try {
     const conn = await mongoose.connect(process.env.MONGO_URI);
-    console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
+    console.log(` MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
-    console.error('❌ MongoDB Connection Error:', error.message);
+    console.error(' MongoDB Connection Error:', error.message);
   }
 };
 

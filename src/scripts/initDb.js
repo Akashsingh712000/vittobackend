@@ -3,10 +3,8 @@ const { pool } = require('../config/db');
 
 const initDB = async () => {
   const query = `
-    CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-    
     CREATE TABLE IF NOT EXISTS leads (
-      id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+      id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
       email VARCHAR(255) UNIQUE NOT NULL,
       phone VARCHAR(50) UNIQUE NOT NULL,
       institution_name VARCHAR(255) NOT NULL,
@@ -20,10 +18,10 @@ const initDB = async () => {
 
   try {
     await pool.query(query);
-    console.log('✅ PostgreSQL Schema initialized successfully');
+    console.log(' PostgreSQL Schema initialized successfully');
     process.exit(0);
   } catch (error) {
-    console.error('❌ Error initializing schema:', error);
+    console.error(' Error initializing schema:', error);
     process.exit(1);
   }
 };

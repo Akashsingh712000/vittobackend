@@ -23,8 +23,8 @@ const sendOtp = async (req, res, next) => {
     // Generate a 6-digit mock OTP
     const mockOtp = Math.floor(100000 + Math.random() * 900000).toString();
 
-    // Store in MongoDB (with TTL of 10 minutes)
-    // If it exists, update it to refresh TTL
+    // Store in MongoDB with TTL of 10 minutes
+    // If it exists update it to refresh TTL
     await OtpSession.findOneAndUpdate(
       { identifier },
       { otp: mockOtp },

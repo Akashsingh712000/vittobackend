@@ -1,19 +1,23 @@
 const mongoose = require('mongoose');
 
-const otpSchema = new mongoose.Schema({
-  identifier: {
-    type: String,
-    required: true,
+const otpSchema = new mongoose.Schema(
+  {
+    identifier: {
+      type: String, // can be phone or email
+      required: true,
+      index: true,
+    },
+    otp: {
+      type: String,
+      required: true,
+    },
   },
-  otp: {
-    type: String,
-    required: true,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-    expires: 600, // 600 seconds = 10 minutes (TTL Index)
-  },
-});
+  {
+    timestamps: true, // adds createdAt automatically
+  }
+);
+
+// TTL Index (10 minutes)
+otpSchema.index({ createdAt: 1 }, { expireAfterSeconds: 600 });
 
 module.exports = mongoose.model('OtpSession', otpSchema);
